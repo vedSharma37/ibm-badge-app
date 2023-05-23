@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -52,7 +53,14 @@ const Header = () => {
 
                 <Left>Right</Left>
                 <Center><Logo>IBM Badge Application</Logo></Center>
-                <Right><AuthLink href="#">Login</AuthLink><AuthLink href="#">Register</AuthLink></Right>
+                <Right>
+                    <AuthLink href="#">
+                        <Link to="/login">Login</Link>
+                        </AuthLink>
+                    <AuthLink href="#">
+                        <Link to="/register">Register</Link>
+                    </AuthLink>
+                </Right>
             </Wrapper>
 
         </Container>

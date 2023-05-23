@@ -86,9 +86,9 @@ const Login = () => {
             <form onSubmit={loginHandler}>
                 <Title>Login</Title>    
                 <Label>UserName</Label>
-                <Input placeholder="Please enter username" value={userName} onChange={(e)=>SetuserName(e.target.value)}/>
+                <Input placeholder="Please enter username" type="text" value={userName} onChange={(e)=>SetuserName(e.target.value)}/>
                 <Label>Password</Label>
-                <Input placeholder="Please enter Password" value={userPass} onChange={(e)=>SetuserPass(e.target.value)}/>
+                <Input placeholder="Please enter Password" type="password" value={userPass} onChange={(e)=>SetuserPass(e.target.value)}/>
                 <Button type="submit">Submit</Button>
                 <ForgotLink href="#">Forgot Password ?</ForgotLink>
             </form>
