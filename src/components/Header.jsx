@@ -1,25 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, Link } from "react-router-dom/cjs/react-router-dom.min";
 import styled from "styled-components";
+import { toast } from "react-toastify";
 
 const Container = styled.div`
-  background-color: #80ded9;
-  color: #333;
+  background-color: #6761a8;
+  color: #fff;
   height: 70px;
 `;
 
 const Wrapper = styled.div`
-  padding: 20px;
+  padding: 10px 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-const Left = styled.div``;
+const Left = styled.div`
+  flex:  1;
+`;
 const Center = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  flex: 3;
 `;
 
 const Logo = styled.a`
@@ -27,33 +30,82 @@ const Logo = styled.a`
 `;
 const Right = styled.div`
   display: flex;
+  flex: 1;
   align-items: flex-end;
+  justify-content: space-around;
 `;
 
-const AuthLink = styled.a`
-  flex: 1;
+const Menu = styled.div`
+  display: flex;
+  align-items: end;
+`;
+
+const MenuUl = styled.ul`
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+`;
+
+const MenuItem = styled.li`
+  list-style: none;
   margin: 0 10px;
-  font-size: 14px;
-  font-weight: 400;
-  text-decoration: none;
-  color: black;
+`;
+
+const LogOutbtn = styled.button`
+  border: none;
+  padding: 5px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  background: #ccc;
+  color: #000;
 `;
 
 const Header = () => {
+  const LoggedIn = sessionStorage.getItem("loggedIn");
+  const UserDetails = JSON.parse(sessionStorage.getItem("loggedinUser"));
+  const history = useHistory();
+
+  const logoutHandler = () => {
+    sessionStorage.clear();
+    toast.success("Logout sucessfully");
+    history.push("/login");
+  };
+
   return (
     <Container>
       <Wrapper>
-        <Left>Right</Left>
+        <Left>
+          {" "}
+          <Logo>IBM</Logo>
+        </Left>
         <Center>
-          <Logo>IBM Badge App</Logo>
+          <Menu>
+            <MenuUl>
+              <MenuItem>
+                <Link to="/">Home</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="/products">Products</Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="/about-us">About Us</Link>
+              </MenuItem>
+            </MenuUl>
+          </Menu>
         </Center>
         <Right>
-          <AuthLink href="#">
-            <Link to="/login">Login</Link>
-          </AuthLink>
-          <AuthLink href="#">
-            <Link to="/register">Register</Link>
-          </AuthLink>
+          {LoggedIn === "true" ? (
+            <>
+              Hi!! {UserDetails.id},{" "}
+              <LogOutbtn onClick={logoutHandler}>Logout</LogOutbtn>
+            </>
+          ) : (
+            <>
+              <Link to="/login">Login</Link> |
+              <Link to="/register">Register</Link>
+            </>
+          )}
         </Right>
       </Wrapper>
     </Container>

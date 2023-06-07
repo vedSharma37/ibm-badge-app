@@ -73,7 +73,9 @@ const Login = () => {
         } else {
           if (resp.userPass === userPass) {
             toast.success("Login sucessfully");
-            history.push("/");
+            sessionStorage.setItem("loggedIn","true");
+            sessionStorage.setItem("loggedinUser", JSON.stringify(resp));
+            history.push("/products");
           } else {
             toast.error("Please enter vaild credintails");
           }

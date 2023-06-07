@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import styled from "styled-components";
 
 const ProductWrapper = styled.div`
@@ -6,6 +7,7 @@ const ProductWrapper = styled.div`
   flex: 1;
   flex-direction: column;
   margin: 30px;
+  align-items: center;
 `;
 
 const ProductImg = styled.img`
@@ -13,6 +15,7 @@ const ProductImg = styled.img`
   height: 300px;
   object-fit: cover;
   border: 1px solid #666;
+  margin-bottom: 20px;
 `;
 
 const ProductName = styled.h3`
@@ -48,7 +51,9 @@ const Product = (props) => {
       <ProductImg src={thumbnail} />
       <ProductName>{title}</ProductName>
       <ProductPrice>$ {price}</ProductPrice>
-      <Button>Buy Now</Button>
+      <Button>
+        <Link to="/">Buy Now</Link>
+    </Button>
     </ProductWrapper>
   );
 };

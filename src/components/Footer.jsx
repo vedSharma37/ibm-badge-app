@@ -2,14 +2,19 @@ import React from 'react'
 import styled from 'styled-components';
 
 const Container = styled.div`
-    background-color: #312F2F;
-    height:70px;`;
+    background-color: #2A2D34;
+    height:70px;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    `
+    
 
 
 const Footer = () => {
   return (
     <Container>
-        Footer
+        &copy; All rights reserved.
     </Container>
   )
 }

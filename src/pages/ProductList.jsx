@@ -22,8 +22,6 @@ const ProductList = () => {
         console.log("success");
         Setproducts(resp);
       });
-
-    console.log(products);
   }, []);
 
   return (
