@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 `;
 
 const Left = styled.div`
-  flex:  1;
+  flex: 1;
 `;
 const Center = styled.div`
   display: flex;
@@ -25,14 +25,16 @@ const Center = styled.div`
   flex: 3;
 `;
 
-const Logo = styled.a`
+const Logo = styled.div`
   font-size: 30px;
 `;
 const Right = styled.div`
   display: flex;
   flex: 1;
   align-items: flex-end;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  font-weight: 300;
+  text-transform: uppercase;
 `;
 
 const Menu = styled.div`
@@ -50,6 +52,7 @@ const MenuUl = styled.ul`
 const MenuItem = styled.li`
   list-style: none;
   margin: 0 10px;
+  font-weight: 300;
 `;
 
 const LogOutbtn = styled.button`
@@ -57,7 +60,8 @@ const LogOutbtn = styled.button`
   padding: 5px 10px;
   border-radius: 2px;
   cursor: pointer;
-  background: #ccc;
+  letter-spacing: 1px;
+  background: #fff;
   color: #000;
 `;
 
@@ -77,7 +81,9 @@ const Header = () => {
       <Wrapper>
         <Left>
           {" "}
-          <Logo>IBM</Logo>
+          <Logo>
+            <Link to="/">IBM</Link>
+          </Logo>
         </Left>
         <Center>
           <Menu>

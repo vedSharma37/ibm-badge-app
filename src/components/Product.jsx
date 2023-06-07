@@ -19,15 +19,15 @@ const ProductImg = styled.img`
 `;
 
 const ProductName = styled.h3`
-    margin: 10px 0px 0;
-    font-size: 14px;
-    font-weight: 500;
+  margin: 10px 0px 0;
+  font-size: 14px;
+  font-weight: 500;
 `;
 
 const ProductPrice = styled.h4`
-    margin-bottom: 10px 0 0;
-    font-weight: 300;
-    font-size: 20px;
+  margin: 10px 0;
+  font-weight: 300;
+  font-size: 20px;
 `;
 
 const Button = styled.button`
@@ -40,7 +40,6 @@ const Button = styled.button`
   margin-bottom: 20px;
   border: 1px solid #c0b9b9;
   cursor: pointer;
-
 `;
 
 const Product = (props) => {
@@ -48,12 +47,14 @@ const Product = (props) => {
 
   return (
     <ProductWrapper>
-      <ProductImg src={thumbnail} />
+      <Link to={"products/" + id}>
+        <ProductImg src={thumbnail} />
+      </Link>
       <ProductName>{title}</ProductName>
       <ProductPrice>$ {price}</ProductPrice>
       <Button>
-        <Link to="/">Buy Now</Link>
-    </Button>
+        <Link to={"products/" + id}>Buy Now</Link>
+      </Button>
     </ProductWrapper>
   );
 };

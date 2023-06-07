@@ -5,8 +5,10 @@ const Container = styled.div`
     background-color: #2A2D34;
     height:70px;
     color: #fff;
-    text-align: center;
     padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     `
     
 
@@ -14,7 +16,7 @@ const Container = styled.div`
 const Footer = () => {
   return (
     <Container>
-        &copy; All rights reserved.
+        <span>&copy; All rights reserved.</span>
     </Container>
   )
 }
